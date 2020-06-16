@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090CB7D4249918FB00B72BBB /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090CB7D3249918FB00B72BBB /* Home.swift */; };
+		090CB7D62499194A00B72BBB /* FoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090CB7D52499194A00B72BBB /* FoodController.swift */; };
+		090CB7DB2499221000B72BBB /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090CB7DA2499221000B72BBB /* CellView.swift */; };
+		090CB7EC2499248800B72BBB /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 090CB7EB2499248800B72BBB /* SDWebImageSwiftUI */; };
+		090CB7EE249924D500B72BBB /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090CB7ED249924D500B72BBB /* OrderView.swift */; };
 		090D13D42497FF8A006CC868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D13D32497FF8A006CC868 /* AppDelegate.swift */; };
 		090D13D62497FF8A006CC868 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D13D52497FF8A006CC868 /* SceneDelegate.swift */; };
 		090D13D82497FF8A006CC868 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D13D72497FF8A006CC868 /* ContentView.swift */; };
@@ -16,12 +21,19 @@
 		091CB6872498BAAE00EB5AED /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091CB6862498BAAE00EB5AED /* AuthView.swift */; };
 		091CB68A2498C45500EB5AED /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091CB6892498C45500EB5AED /* SignInView.swift */; };
 		091CB68C2498C69600EB5AED /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091CB68B2498C69600EB5AED /* SignUpView.swift */; };
+		0928467824992F4E00583808 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0928467724992F4E00583808 /* CartView.swift */; };
+		0928467A24992FB300583808 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0928467924992FB300583808 /* Loader.swift */; };
+		0928467C2499311700583808 /* CartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0928467B2499311700583808 /* CartController.swift */; };
 		0932046C2498B04000A83BDC /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0932046B2498B04000A83BDC /* SessionStore.swift */; };
 		09E056222498054E00D1ECCE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09E056212498054E00D1ECCE /* GoogleService-Info.plist */; };
 		116DF09BA7F7747F59806B3F /* Pods_OrderAndEat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF9F12D0041A6EE5B5BB463 /* Pods_OrderAndEat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		090CB7D3249918FB00B72BBB /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		090CB7D52499194A00B72BBB /* FoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodController.swift; sourceTree = "<group>"; };
+		090CB7DA2499221000B72BBB /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		090CB7ED249924D500B72BBB /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		090D13D02497FF8A006CC868 /* OrderAndEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrderAndEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		090D13D32497FF8A006CC868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		090D13D52497FF8A006CC868 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,6 +45,9 @@
 		091CB6862498BAAE00EB5AED /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		091CB6892498C45500EB5AED /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		091CB68B2498C69600EB5AED /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		0928467724992F4E00583808 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		0928467924992FB300583808 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		0928467B2499311700583808 /* CartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartController.swift; sourceTree = "<group>"; };
 		0932046B2498B04000A83BDC /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		09E056212498054E00D1ECCE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		51AC5713B813618BD1770FCB /* Pods-OrderAndEat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderAndEat.debug.xcconfig"; path = "Target Support Files/Pods-OrderAndEat/Pods-OrderAndEat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -45,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				090CB7EC2499248800B72BBB /* SDWebImageSwiftUI in Frameworks */,
 				116DF09BA7F7747F59806B3F /* Pods_OrderAndEat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,10 +113,13 @@
 		091CB6882498BABB00EB5AED /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				091CB6862498BAAE00EB5AED /* AuthView.swift */,
+				0928467D2499359500583808 /* Authentification */,
 				090D13D72497FF8A006CC868 /* ContentView.swift */,
-				091CB6892498C45500EB5AED /* SignInView.swift */,
-				091CB68B2498C69600EB5AED /* SignUpView.swift */,
+				090CB7D3249918FB00B72BBB /* Home.swift */,
+				090CB7DA2499221000B72BBB /* CellView.swift */,
+				090CB7ED249924D500B72BBB /* OrderView.swift */,
+				0928467724992F4E00583808 /* CartView.swift */,
+				0928467924992FB300583808 /* Loader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -109,8 +128,20 @@
 			isa = PBXGroup;
 			children = (
 				0932046B2498B04000A83BDC /* SessionStore.swift */,
+				090CB7D52499194A00B72BBB /* FoodController.swift */,
+				0928467B2499311700583808 /* CartController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0928467D2499359500583808 /* Authentification */ = {
+			isa = PBXGroup;
+			children = (
+				091CB6862498BAAE00EB5AED /* AuthView.swift */,
+				091CB6892498C45500EB5AED /* SignInView.swift */,
+				091CB68B2498C69600EB5AED /* SignUpView.swift */,
+			);
+			path = Authentification;
 			sourceTree = "<group>";
 		};
 		3F55120318088E49A8282420 /* Pods */ = {
@@ -148,6 +179,9 @@
 			dependencies = (
 			);
 			name = OrderAndEat;
+			packageProductDependencies = (
+				090CB7EB2499248800B72BBB /* SDWebImageSwiftUI */,
+			);
 			productName = OrderAndEat;
 			productReference = 090D13D02497FF8A006CC868 /* OrderAndEat.app */;
 			productType = "com.apple.product-type.application";
@@ -176,6 +210,9 @@
 				Base,
 			);
 			mainGroup = 090D13C72497FF8A006CC868;
+			packageReferences = (
+				090CB7EA2499248800B72BBB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 090D13D12497FF8A006CC868 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -246,12 +283,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				090CB7D62499194A00B72BBB /* FoodController.swift in Sources */,
 				091CB68A2498C45500EB5AED /* SignInView.swift in Sources */,
 				090D13D42497FF8A006CC868 /* AppDelegate.swift in Sources */,
 				091CB6872498BAAE00EB5AED /* AuthView.swift in Sources */,
 				091CB68C2498C69600EB5AED /* SignUpView.swift in Sources */,
 				090D13D62497FF8A006CC868 /* SceneDelegate.swift in Sources */,
+				0928467824992F4E00583808 /* CartView.swift in Sources */,
+				090CB7DB2499221000B72BBB /* CellView.swift in Sources */,
 				0932046C2498B04000A83BDC /* SessionStore.swift in Sources */,
+				0928467C2499311700583808 /* CartController.swift in Sources */,
+				0928467A24992FB300583808 /* Loader.swift in Sources */,
+				090CB7EE249924D500B72BBB /* OrderView.swift in Sources */,
+				090CB7D4249918FB00B72BBB /* Home.swift in Sources */,
 				090D13D82497FF8A006CC868 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +492,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		090CB7EA2499248800B72BBB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		090CB7EB2499248800B72BBB /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 090CB7EA2499248800B72BBB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 090D13C82497FF8A006CC868 /* Project object */;
 }
