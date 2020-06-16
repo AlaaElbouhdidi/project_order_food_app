@@ -56,7 +56,7 @@ struct OrderView: View {
                 }
                 
                 Button(action: {
-                    if(self.quantity < 0){
+                    if(self.quantity != 0){
                         
                         let db = Firestore.firestore()
                         db.collection("cart")

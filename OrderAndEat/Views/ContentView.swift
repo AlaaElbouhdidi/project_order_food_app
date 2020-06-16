@@ -66,7 +66,7 @@ struct ContentView: View {
                         )
                     }
                     
-                }.animation(.linear(duration: 1.0))
+                }
             } else {
                 AuthView()
             }
