@@ -73,10 +73,10 @@
 		090D13D22497FF8A006CC868 /* OrderAndEat */ = {
 			isa = PBXGroup;
 			children = (
+				091CB68D2498DD7B00EB5AED /* Controllers */,
 				091CB6882498BABB00EB5AED /* Views */,
 				090D13D32497FF8A006CC868 /* AppDelegate.swift */,
 				090D13D52497FF8A006CC868 /* SceneDelegate.swift */,
-				0932046B2498B04000A83BDC /* SessionStore.swift */,
 				090D13D92497FF8D006CC868 /* Assets.xcassets */,
 				090D13DE2497FF8D006CC868 /* LaunchScreen.storyboard */,
 				090D13E12497FF8D006CC868 /* Info.plist */,
@@ -103,6 +103,14 @@
 				091CB68B2498C69600EB5AED /* SignUpView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		091CB68D2498DD7B00EB5AED /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0932046B2498B04000A83BDC /* SessionStore.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		3F55120318088E49A8282420 /* Pods */ = {

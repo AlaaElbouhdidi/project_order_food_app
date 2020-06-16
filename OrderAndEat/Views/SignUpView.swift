@@ -10,6 +10,8 @@ import SwiftUI
 
 struct SignUpView: View {
     @State var email: String = ""
+    @State var firstName: String = ""
+    @State var lastName: String = ""
     @State var password: String = ""
     @State var error: String = ""
     @EnvironmentObject var session: SessionStore
@@ -19,6 +21,7 @@ struct SignUpView: View {
             if let error = error {
                 self.error = error.localizedDescription
             } else {
+                self.session.addNewUser(uid: result!.user.uid, firstName: self.firstName, lastName: self.lastName)
                 self.email = ""
                 self.password = ""
             }
@@ -35,10 +38,21 @@ struct SignUpView: View {
                 .foregroundColor(.gray)
             
             VStack (spacing: 18) {
+                TextField("First name", text: $firstName)
+                    .font(.system(size: 14))
+                    .padding(12)
+                    .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.black), lineWidth: 1))
+                
+                TextField("Last name", text: $lastName)
+                    .font(.system(size: 14))
+                    .padding(12)
+                    .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.black), lineWidth: 1))
+                
                 TextField("Email adress", text: $email)
                     .font(.system(size: 14))
                     .padding(12)
                     .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.black), lineWidth: 1))
+                
                 
                 SecureField("Password", text: $password)
                     .font(.system(size: 14))
@@ -48,7 +62,7 @@ struct SignUpView: View {
             .padding(.vertical, 64)
             
             Button(action: signUp) {
-                Text("Create Account")
+                Text("Register")
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .frame(height: 50)
                     .foregroundColor(.white)
