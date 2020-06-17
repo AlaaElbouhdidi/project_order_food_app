@@ -37,7 +37,7 @@ struct CartView : View {
                             VStack(alignment: .leading){
                                 
                                 Text(i.name)
-                                Text("\(i.quantity)")
+                                Text("x\(i.quantity)")
                             }
                         }
                         .onTapGesture {
