@@ -64,7 +64,7 @@ class SessionStore: ObservableObject {
         //adding new Data in "users" Collection
         let userRef = db.collection("users")
         var query = userRef.whereField("uid", isEqualTo:  uid)
-            .getDocuments() { (querySnapshot, err) in
+            query.getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {

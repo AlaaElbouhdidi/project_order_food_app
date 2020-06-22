@@ -15,8 +15,9 @@ struct CellView: View {
     
     var body: some View {
         VStack{
+            NavigationLink(destination: DetailView(data: self.data)){
             AnimatedImage(url: URL(string: data.pic)!).resizable().frame(height: 270)
-            
+            }
             HStack{
                 
                 VStack(alignment: .leading){

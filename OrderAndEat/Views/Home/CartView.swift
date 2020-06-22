@@ -38,7 +38,7 @@ struct CartView : View {
                                     
                                 
                                 Text(i.name)
-                                Text("\(i.quantity)")
+                                Text("x\(i.quantity)")
                             }
                         }
                         .onTapGesture {
