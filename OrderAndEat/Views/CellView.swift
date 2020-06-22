@@ -31,7 +31,7 @@ struct CellView: View {
                 }
                 
                 Spacer()
-                
+            
                 Button(action: {
                     
                     self.show.toggle()
@@ -55,6 +55,7 @@ struct CellView: View {
                 
                 OrderView(data: self.data)
         }
+        
     }
     
 }

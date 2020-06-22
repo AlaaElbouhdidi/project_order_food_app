@@ -35,6 +35,7 @@ struct CartView : View {
                                 .cornerRadius(10)
                             
                             VStack(alignment: .leading){
+                                    
                                 
                                 Text(i.name)
                                 Text("\(i.quantity)")
@@ -52,7 +53,6 @@ struct CartView : View {
                         db.collection("cart").document(self.cartdata.datas[index.last!].id).delete { (err) in
                             
                             if err != nil{
-                                
                                 print((err?.localizedDescription)!)
                                 return
                             }
@@ -60,7 +60,7 @@ struct CartView : View {
                             self.cartdata.datas.remove(atOffsets: index)
                         }
                     }
-                    
+
                 }
             }
             

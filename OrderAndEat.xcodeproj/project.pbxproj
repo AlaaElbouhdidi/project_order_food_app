@@ -3,14 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		090CB7D4249918FB00B72BBB /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090CB7D3249918FB00B72BBB /* Home.swift */; };
 		090CB7D62499194A00B72BBB /* FoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090CB7D52499194A00B72BBB /* FoodController.swift */; };
 		090CB7DB2499221000B72BBB /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090CB7DA2499221000B72BBB /* CellView.swift */; };
-		090CB7EC2499248800B72BBB /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 090CB7EB2499248800B72BBB /* SDWebImageSwiftUI */; };
 		090CB7EE249924D500B72BBB /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090CB7ED249924D500B72BBB /* OrderView.swift */; };
 		090D13D42497FF8A006CC868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D13D32497FF8A006CC868 /* AppDelegate.swift */; };
 		090D13D62497FF8A006CC868 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D13D52497FF8A006CC868 /* SceneDelegate.swift */; };
@@ -60,7 +59,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				090CB7EC2499248800B72BBB /* SDWebImageSwiftUI in Frameworks */,
 				116DF09BA7F7747F59806B3F /* Pods_OrderAndEat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,7 +178,6 @@
 			);
 			name = OrderAndEat;
 			packageProductDependencies = (
-				090CB7EB2499248800B72BBB /* SDWebImageSwiftUI */,
 			);
 			productName = OrderAndEat;
 			productReference = 090D13D02497FF8A006CC868 /* OrderAndEat.app */;
@@ -211,7 +208,6 @@
 			);
 			mainGroup = 090D13C72497FF8A006CC868;
 			packageReferences = (
-				090CB7EA2499248800B72BBB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 090D13D12497FF8A006CC868 /* Products */;
 			projectDirPath = "";
@@ -492,25 +488,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		090CB7EA2499248800B72BBB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		090CB7EB2499248800B72BBB /* SDWebImageSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 090CB7EA2499248800B72BBB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
-			productName = SDWebImageSwiftUI;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 090D13C82497FF8A006CC868 /* Project object */;
 }

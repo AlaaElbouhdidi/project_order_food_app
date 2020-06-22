@@ -9,6 +9,7 @@
 import Foundation
 import FirebaseFirestore
 
+
 class getFoodData: ObservableObject {
     @Published var data = [food]()
     
