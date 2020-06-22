@@ -5,7 +5,6 @@
 //  Created by ii on 16.06.20.
 //  Copyright © 2020 OrderAndEat. All rights reserved.
 //
-
 import SwiftUI
 
 struct Home: View {
@@ -42,11 +41,23 @@ struct Home: View {
                         }
                         .navigationBarTitle("Home",displayMode: .inline)
                         .navigationBarItems(leading:
+                            
+                            Button(action: {
+                                
+                                self.session.signOut()
+                                
+                            }, label: {
+                                
+                                Text("Sign out").font(.body).foregroundColor(.black)
+                            }),trailing:
+                            
+                            HStack{
+                            
                             NavigationLink(destination: ProfilDetail()){
                                 Image(systemName: "person.fill")
                                 .font(.body).foregroundColor(.black)
-                            }
-                            ,trailing:
+                                }.padding()
+                            
                             Button(action: {
                                 
                                 self.show.toggle()
@@ -56,7 +67,7 @@ struct Home: View {
                                 Image(systemName: "cart.fill")
                                     .font(.body).foregroundColor(.black)
                             })
-                        )
+                        })
                     }
                     
                     if self.show{
@@ -84,6 +95,7 @@ struct Home: View {
         
     }
 }
+
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {

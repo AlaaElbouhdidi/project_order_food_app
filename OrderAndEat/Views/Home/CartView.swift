@@ -37,9 +37,17 @@ struct CartView : View {
                             VStack(alignment: .leading){
                                     
                                 
+                                
+                                if(i.quantity == 0) {
+                                        Text("Quantitiy 0")
+                                        Text("no quantity")
+                                }
+                                
+                                else {
                                 Text(i.name)
                                 Text("x\(i.quantity)")
                             }
+                        }
                         }
                         .onTapGesture {
                             
