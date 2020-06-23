@@ -13,6 +13,8 @@ import FirebaseFirestore
 struct CartView : View {
     
     @ObservedObject var cartdata = getCartData()
+    @State private var showRow = true
+    
     
     var body : some View{
         
@@ -27,33 +29,15 @@ struct CartView : View {
                     
                     ForEach(self.cartdata.datas){i in
                         
-                        HStack(spacing: 15){
-                            
-                            AnimatedImage(url: URL(string: i.pic))
-                                .resizable()
-                                .frame(width: 55, height: 55)
-                                .cornerRadius(10)
-                            
-                            VStack(alignment: .leading){
-                                    
-                                
-                                
-                                if(i.quantity == 0) {
-                                        Text("Quantitiy 0")
-                                        Text("no quantity")
-                                }
-                                
-                                else {
-                                Text(i.name)
-                                Text("x\(i.quantity)")
-                            }
-                        }
-                        }
-                        .onTapGesture {
-                            
-                            UIApplication.shared.windows.last?.rootViewController?.present(textFieldAlertView(id: i.id), animated: true, completion: nil)
-                        }
                         
+                        HStack(spacing: 15){
+                        
+                            CartRow(item: i)
+                            .onTapGesture {
+                                UIApplication.shared.windows.last?.rootViewController?.present(textFieldAlertView(id: i.id), animated: true, completion: nil)
+                            }
+                            
+                        }
                     }
                     .onDelete { (index) in
                         
@@ -68,15 +52,17 @@ struct CartView : View {
                             self.cartdata.datas.remove(atOffsets: index)
                         }
                     }
-
+                    
                 }
             }
             
         }.frame(width: UIScreen.main.bounds.width - 110, height: UIScreen.main.bounds.height - 350)
-        .background(Color.white)
-        .cornerRadius(25)
+            .background(Color.white)
+            .cornerRadius(25)
     }
 }
+
+
 
 func textFieldAlertView(id: String)->UIAlertController{
     
@@ -93,7 +79,7 @@ func textFieldAlertView(id: String)->UIAlertController{
         let db = Firestore.firestore()
         
         let value = alert.textFields![0].text!
-            
+        
         db.collection("cart").document(id).updateData(["quantity":Int(value)!]) { (err) in
             
             if err != nil{

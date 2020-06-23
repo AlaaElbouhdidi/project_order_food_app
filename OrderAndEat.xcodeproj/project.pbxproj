@@ -31,6 +31,7 @@
 		09F1F5B8249A4E650018F204 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F1F5B7249A4E650018F204 /* StarRatingView.swift */; };
 		09F1F5BA249A54420018F204 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F1F5B9249A54420018F204 /* ReviewView.swift */; };
 		116DF09BA7F7747F59806B3F /* Pods_OrderAndEat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF9F12D0041A6EE5B5BB463 /* Pods_OrderAndEat.framework */; };
+		3DF5B75D24A21ABA00EE7D7D /* CartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF5B75C24A21ABA00EE7D7D /* CartRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		09F1F5B4249A46D50018F204 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		09F1F5B7249A4E650018F204 /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
 		09F1F5B9249A54420018F204 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		3DF5B75C24A21ABA00EE7D7D /* CartRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRow.swift; sourceTree = "<group>"; };
 		51AC5713B813618BD1770FCB /* Pods-OrderAndEat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderAndEat.debug.xcconfig"; path = "Target Support Files/Pods-OrderAndEat/Pods-OrderAndEat.debug.xcconfig"; sourceTree = "<group>"; };
 		CAF7158CDA3E35564BFD5D76 /* Pods-OrderAndEat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderAndEat.release.xcconfig"; path = "Target Support Files/Pods-OrderAndEat/Pods-OrderAndEat.release.xcconfig"; sourceTree = "<group>"; };
 		ECF9F12D0041A6EE5B5BB463 /* Pods_OrderAndEat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrderAndEat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +168,7 @@
 				090CB7ED249924D500B72BBB /* OrderView.swift */,
 				0928467724992F4E00583808 /* CartView.swift */,
 				0928467924992FB300583808 /* Loader.swift */,
+				3DF5B75C24A21ABA00EE7D7D /* CartRow.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				0928467824992F4E00583808 /* CartView.swift in Sources */,
 				090CB7DB2499221000B72BBB /* CellView.swift in Sources */,
 				096D036D249A86B200D3804A /* AddReviewView.swift in Sources */,
+				3DF5B75D24A21ABA00EE7D7D /* CartRow.swift in Sources */,
 				0932046C2498B04000A83BDC /* SessionStore.swift in Sources */,
 				09F1F5B8249A4E650018F204 /* StarRatingView.swift in Sources */,
 				0928467C2499311700583808 /* CartController.swift in Sources */,
