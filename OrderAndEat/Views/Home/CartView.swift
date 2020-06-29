@@ -27,17 +27,50 @@ struct CartView : View {
                 
                 List{
                     
+                    
                     ForEach(self.cartdata.datas){i in
                         
                         
-                        HStack(spacing: 15){
+                        /* if i.quantity == 0 {
+                         let db = Firestore.firestore()
+                         db.collection("cart").document(self.cartdata.datas[i.last!].id).delete { (err) in
+                         
+                         if err != nil{
+                         print((err?.localizedDescription)!)
+                         return
+                         }
+                         
+                         self.cartdata.datas.remove(atOffsets: i)
+                         }
+                         
+                         }*/
                         
+                        
+                        HStack(spacing: 15){
+                            
                             CartRow(item: i)
-                            .onTapGesture {
-                                UIApplication.shared.windows.last?.rootViewController?.present(textFieldAlertView(id: i.id), animated: true, completion: nil)
-                            }
+                                .onTapGesture {
+                                    UIApplication.shared.windows.last?.rootViewController?.present(textFieldAlertView(id: i.id), animated: true, completion: nil)}
                             
                         }
+                        .onAppear {
+                            if i.quantity == 0 {
+                                let db = Firestore.firestore()
+                                db.collection("cart").document(self.cartdata.datas[i.last!].id).delete { (err) in
+                                    
+                                    if err != nil{
+                                        print((err?.localizedDescription)!)
+                                        return
+                                    }
+                                    
+                                    self.cartdata.datas.remove(atOffsets: i)
+                                }
+                                
+                            }
+                        }
+                        
+                        
+                        
                     }
                     .onDelete { (index) in
                         
@@ -55,11 +88,21 @@ struct CartView : View {
                     
                 }
             }
+            if self.cartdata.datas.count != 0{
+                Button(action: {print("test")})
+                {Text("Checkout").frame(minWidth: 0, maxWidth: .infinity)
+                    .frame(height: 50)
+                    .foregroundColor(.black)
+                    .font(.system(size: 14, weight: .bold))
+                    .background(Color.yellow)
+                    .cornerRadius(5)}
+            }
             
         }.frame(width: UIScreen.main.bounds.width - 110, height: UIScreen.main.bounds.height - 350)
             .background(Color.white)
             .cornerRadius(25)
     }
+    
 }
 
 
