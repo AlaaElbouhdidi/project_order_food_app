@@ -33,8 +33,9 @@ class getCartData : ObservableObject{
                     let name = i.document.get("item") as! String
                     let quantity = i.document.get("quantity") as! NSNumber
                     let pic = i.document.get("pic") as! String
+                    let uid = i.document.get("uid") as? String ?? ""
 
-                    self.datas.append(cart(id: id, name: name, quantity: quantity, pic: pic))
+                    self.datas.append(cart(id: id, name: name, quantity: quantity, pic: pic, uid: uid))
                 }
                 
                 if i.type == .modified{
@@ -60,4 +61,6 @@ struct cart : Identifiable {
     var name : String
     var quantity : NSNumber
     var pic : String
+    var uid : String
+    
 }

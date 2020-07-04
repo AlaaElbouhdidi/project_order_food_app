@@ -9,9 +9,8 @@
 import Foundation
 import FirebaseFirestore
 
-
 class getFoodData: ObservableObject {
-    @Published var data = [food]()
+    @Published var data = [Food]()
     
     init() {
         let db = Firestore.firestore()
@@ -28,16 +27,25 @@ class getFoodData: ObservableObject {
                 let name = i.document.get("name") as! String
                 let price = i.document.get("price") as! String
                 let pic = i.document.get("pic") as! String
-                self.data.append(food(id: id, name: name, price: price, pic: pic))
+                self.data.append(Food(id: id, name: name, price: price, pic: pic))
             }
             
         }
     }
 }
-struct food: Identifiable {
+struct Food: Identifiable {
+    
+    internal init(id: String, name: String? = nil, price: String? = nil, pic: String? = nil) {
+        self.id = id
+        self.name = name
+        self.price = price
+        self.pic = pic
+    }
+    
     
     var id: String
-    var name: String
-    var price: String
-    var pic: String
+    var name: String?
+    var price: String?
+    var pic: String?
+    
 }

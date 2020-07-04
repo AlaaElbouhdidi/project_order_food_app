@@ -7,23 +7,35 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ReviewView: View {
+    
+    var data : Review
+    func getStars() -> Int {
+        return  Int(self.data.stars) - 1
+    }
     var body: some View {
-        VStack(spacing: 20){
+        VStack(alignment: .leading, spacing: 20){
             HStack(spacing: 40){
-                Text("Edward")
+                Text(data.username )
                     .multilineTextAlignment(.center)
-                StarRatingView(rating: .constant(4))
-                    .scaledToFit()
+                
                 Spacer()
+                StarRatingView(rating: .constant(getStars()))
+                    .padding(.horizontal)
+                    .scaledToFit()
             }
             HStack(spacing: 40){
-                Image(systemName: "person")
+                AnimatedImage(url: URL(string: data.userpic ))
                     .resizable()
-                    .frame(width: 40, height: 40)
                     .clipShape(Circle())
-                Text("The taste is really good and the delivery is very fast. i can highly recommend it")
+                    .overlay(Circle().stroke(Color.white, lineWidth: 1))
+                    .shadow(radius: 10)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 70, height: 70)
+                Text(data.reviewtext)
+                Spacer()
             }
         }
         
@@ -32,6 +44,6 @@ struct ReviewView: View {
 
 struct ReviewView_Previews: PreviewProvider {
     static var previews: some View {
-        ReviewView()
+        ReviewView(data: Review(id: "", stars: 4, reviewtext: "The taste is really good and the delivery is very fast. i can highly recommend it", userpic: " https://cdn.pixabay.com/photo/2018/08/28/12/41/avatar-3637425_960_720.png" , username: " Ana", foodid: Food(id: "d")))
     }
 }

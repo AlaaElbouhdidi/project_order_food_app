@@ -14,7 +14,7 @@ struct CartRow: View {
     
     var body: some View {
         
-        HStack{
+        HStack(spacing: 15){
             AnimatedImage(url: URL(string:item.pic))
             .resizable()
                 .frame(width: 55, height: 55)

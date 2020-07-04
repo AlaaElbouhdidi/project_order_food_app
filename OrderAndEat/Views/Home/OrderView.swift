@@ -11,24 +11,47 @@ import SDWebImageSwiftUI
 import FirebaseFirestore
 
 struct OrderView: View {
-    var data : food
+    var data : Food
     @State var cash = false
     @State var quick = false
     @State var quantity = 0
+    var uid: String
     @Environment(\.presentationMode) var presentation
+    
+    
+    func addCart() {
+        if(self.quantity != 0){
+            
+            let db = Firestore.firestore()
+            db.collection("cart")
+                .document()
+                .setData(["item":self.data.name!,"quantity":self.quantity,"quickdelivery":self.quick,"cashondelivery":self.cash,"pic":self.data.pic!,  "uid": self.uid ]) { (err) in
+                    
+                    if err != nil{
+                        
+                        print((err?.localizedDescription)!)
+                        return
+                    }
+                    
+                    // it will dismiss the recently presented modal....
+                    
+                    self.presentation.wrappedValue.dismiss()
+            }
+        }
+    }
     
     var body : some View{
         
         VStack(alignment: .leading, spacing: 15){
             
-            AnimatedImage(url: URL(string: data.pic)!)
+            AnimatedImage(url: URL(string: data.pic ?? "")!)
                 .resizable()
                 .frame(height: UIScreen.main.bounds.height / 2 - 100)
             
             VStack(alignment: .leading, spacing: 25) {
                 
-                Text(data.name).fontWeight(.heavy).font(.title)
-                Text(data.price+" €").fontWeight(.heavy).font(.body)
+                Text(data.name!).fontWeight(.heavy).font(.title)
+                Text(data.price!+" €").fontWeight(.heavy).font(.body)
                 
                 Toggle(isOn : $cash){
                     
@@ -56,24 +79,7 @@ struct OrderView: View {
                 }
                 
                 Button(action: {
-                    if(self.quantity != 0){
-                        
-                        let db = Firestore.firestore()
-                        db.collection("cart")
-                            .document()
-                            .setData(["item":self.data.name,"quantity":self.quantity,"quickdelivery":self.quick,"cashondelivery":self.cash,"pic":self.data.pic]) { (err) in
-                                
-                                if err != nil{
-                                    
-                                    print((err?.localizedDescription)!)
-                                    return
-                                }
-                            
-                                // it will dismiss the recently presented modal....
-                                
-                                self.presentation.wrappedValue.dismiss()
-                        }
-                    }
+                    self.addCart()
                 }) {
                     
                     Text("Add To Cart")

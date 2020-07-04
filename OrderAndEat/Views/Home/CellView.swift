@@ -10,29 +10,30 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct CellView: View {
-    var data : food
+    var data : Food
     @State var show = false
+    @EnvironmentObject var session: SessionStore
     
     var body: some View {
         VStack{
             NavigationLink(destination: DetailView(data: self.data)){
-            AnimatedImage(url: URL(string: data.pic)!).resizable().frame(height: 270)
+            AnimatedImage(url: URL(string: data.pic!)!).resizable().frame(height: 270)
             }
             HStack{
                 
                 VStack(alignment: .leading){
                     
-                    Text(data.name)
+                    Text(data.name!)
                         .font(.title)
                         .fontWeight(.heavy)
                     
-                    Text(data.price+" €")
+                    Text(data.price!+" €")
                         .fontWeight(.heavy)
                         .font(.body)
                 }
                 
                 Spacer()
-            
+                
                 Button(action: {
                     
                     self.show.toggle()
@@ -54,9 +55,14 @@ struct CellView: View {
             .cornerRadius(20)
             .sheet(isPresented: self.$show) {
                 
-                OrderView(data: self.data)
+                OrderView(data: self.data,uid: self.session.session?.uid ?? "")
         }
-        
     }
     
+}
+
+struct CellView_Previews: PreviewProvider {
+    static var previews: some View {
+        CellView(data: Food(id: ""))
+    }
 }

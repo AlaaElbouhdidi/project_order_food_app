@@ -34,7 +34,7 @@ class SessionStore: ObservableObject {
     }
     
     func signIn (email: String, password: String, handler: @escaping AuthDataResultCallback) {
-        Auth.auth().signIn(withEmail: email, password: password, completion: handler) 
+        Auth.auth().signIn(withEmail: email, password: password, completion: handler)
     }
     
     func addNewUser(uid: String, firstName: String, lastName: String){
@@ -57,23 +57,24 @@ class SessionStore: ObservableObject {
         }
     }
     
-    func fetchUserInfos(uid: String){
+    func fetchUserInfos(uid: String) {
         //implement Database
         let db = Firestore.firestore()
     
         //adding new Data in "users" Collection
         let userRef = db.collection("users")
         var query = userRef.whereField("uid", isEqualTo:  uid)
-            query.getDocuments() { (querySnapshot, err) in
+        query.getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
                     for document in querySnapshot!.documents {
                         let firstname = document.get("firstname") as? String ?? ""
                         let lastname = document.get("lastname") as? String ?? ""
+                        let pic = document.get("pic") as? String ?? ""
                         self.session?.firstName = firstname
                         self.session?.lastName = lastname
-                        
+                        self.session?.pic = pic
                     }
                 }
         }
@@ -105,12 +106,6 @@ struct User {
     var email: String?
     var firstName: String?
     var lastName: String?
-
+    var pic: String?
     
-    init(uid: String, email:String?){
-        self.uid = uid
-        self.email = email
-        self.firstName = ""
-        self.lastName = ""
-    }
 }

@@ -13,63 +13,44 @@ import FirebaseFirestore
 struct CartView : View {
     
     @ObservedObject var cartdata = getCartData()
-    @State private var showRow = true
+    var uid: String
     
+    func getCartDataOfThisUser() -> [cart]  {
+        return self.cartdata.datas.filter{
+            $0.uid == self.uid
+        }
+    }
     
     var body : some View{
         
         VStack(alignment: .leading){
             
-            Text(self.cartdata.datas.count != 0 ? "Items In The Cart" : "No Items In Cart").padding([.top,.leading])
+            Text(self.getCartDataOfThisUser().count != 0 ? "Items In The Cart" : "No Items In Cart").padding([.top,.leading])
             
             
-            if self.cartdata.datas.count != 0{
+            if self.getCartDataOfThisUser().count != 0{
                 
                 List{
                     
-                    
-                    ForEach(self.cartdata.datas){i in
-                        
-                        
-                        /* if i.quantity == 0 {
-                         let db = Firestore.firestore()
-                         db.collection("cart").document(self.cartdata.datas[i.last!].id).delete { (err) in
-                         
-                         if err != nil{
-                         print((err?.localizedDescription)!)
-                         return
-                         }
-                         
-                         self.cartdata.datas.remove(atOffsets: i)
-                         }
-                         
-                         }*/
-                        
+                    ForEach(self.getCartDataOfThisUser()){i in
                         
                         HStack(spacing: 15){
                             
-                            CartRow(item: i)
-                                .onTapGesture {
-                                    UIApplication.shared.windows.last?.rootViewController?.present(textFieldAlertView(id: i.id), animated: true, completion: nil)}
+                            AnimatedImage(url: URL(string: i.pic))
+                                .resizable()
+                                .frame(width: 55, height: 55)
+                                .cornerRadius(10)
                             
-                        }
-                        .onAppear {
-                            if i.quantity == 0 {
-                                let db = Firestore.firestore()
-                                db.collection("cart").document(self.cartdata.datas[i.last!].id).delete { (err) in
-                                    
-                                    if err != nil{
-                                        print((err?.localizedDescription)!)
-                                        return
-                                    }
-                                    
-                                    self.cartdata.datas.remove(atOffsets: i)
-                                }
+                            VStack(alignment: .leading){
                                 
+                                Text(i.name)
+                                Text("x\(i.quantity)")
                             }
                         }
-                        
-                        
+                        .onTapGesture {
+                            
+                            UIApplication.shared.windows.last?.rootViewController?.present(textFieldAlertView(id: i.id), animated: true, completion: nil)
+                        }
                         
                     }
                     .onDelete { (index) in
@@ -78,6 +59,7 @@ struct CartView : View {
                         db.collection("cart").document(self.cartdata.datas[index.last!].id).delete { (err) in
                             
                             if err != nil{
+                                
                                 print((err?.localizedDescription)!)
                                 return
                             }
@@ -88,24 +70,27 @@ struct CartView : View {
                     
                 }
             }
+            
             if self.cartdata.datas.count != 0{
-                Button(action: {print("test")})
-                {Text("Checkout").frame(minWidth: 0, maxWidth: .infinity)
+                Button(action: {
+                    print("test")
+                    
+                }){
+                    Text("Checkout").frame(minWidth: 0, maxWidth: .infinity)
                     .frame(height: 50)
                     .foregroundColor(.black)
                     .font(.system(size: 14, weight: .bold))
                     .background(Color.yellow)
-                    .cornerRadius(5)}
+                    .cornerRadius(5)
+                    
+                }
             }
             
         }.frame(width: UIScreen.main.bounds.width - 110, height: UIScreen.main.bounds.height - 350)
-            .background(Color.white)
-            .cornerRadius(25)
+        .background(Color.white)
+        .cornerRadius(25)
     }
-    
 }
-
-
 
 func textFieldAlertView(id: String)->UIAlertController{
     
@@ -122,7 +107,7 @@ func textFieldAlertView(id: String)->UIAlertController{
         let db = Firestore.firestore()
         
         let value = alert.textFields![0].text!
-        
+            
         db.collection("cart").document(id).updateData(["quantity":Int(value)!]) { (err) in
             
             if err != nil{
@@ -140,4 +125,10 @@ func textFieldAlertView(id: String)->UIAlertController{
     alert.addAction(update)
     
     return alert
+}
+
+struct CartView_Previews: PreviewProvider {
+    static var previews: some View {
+        CartView(uid: "")
+    }
 }

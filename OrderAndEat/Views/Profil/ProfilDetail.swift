@@ -7,50 +7,47 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ProfilDetail: View {
     
     @EnvironmentObject var session: SessionStore
     
+    func getusername() -> String {
+        return (self.session.session?.firstName ?? "")+" "+(self.session.session?.lastName ?? "")
+    }
     
     var body: some View {
         VStack(alignment: .leading){
             
             HStack(alignment: .top){
-                
-                Image(systemName: "person.fill")
+                AnimatedImage(url: URL(string: self.session.session?.pic ?? ""))
                     .resizable()
-                    .frame(width: 150, height: 150)
                     .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.white, lineWidth: 1))
+                    .shadow(radius: 10)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 140, height: 140)
                 Spacer()
                 Button(action: {
-                    
                     self.session.signOut()
-                    
-                },
+                    },
                        label: {
-                    VStack{
-                        Image("ausloggen")
-                            .resizable()
-                            .frame(width: 40, height: 40, alignment: .top)
-                            .foregroundColor(.red)
-                        Text("Logout").font(.system(size: 11))
-                            .foregroundColor(.red)
-                    }
-                    
-                }
-                )
+                        VStack{
+                            Image("ausloggen")
+                                .resizable()
+                                .frame(width: 40, height: 40, alignment: .top)
+                                .foregroundColor(.red)
+                            Text("Logout").font(.system(size: 11))
+                                .foregroundColor(.red)
+                        }
+                    })
             }.padding()
-            
-                Text((self.session.session?.firstName ?? "")+" "+(self.session.session?.lastName ?? ""))
-                .font(.system(size: 32, weight: .heavy))
-            
-                Spacer()
+            VStack(alignment: .leading){
+                FormView()
+            }
+            Spacer()
         }.padding()
-        
-        
-        
-        
     }
 }
 
