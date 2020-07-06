@@ -10,6 +10,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 import FirebaseFirestore
 
+
 struct CartView : View {
     
     @ObservedObject var cartdata = getCartData()
@@ -46,7 +47,7 @@ struct CartView : View {
                                 Text(i.name)
                                 Text("x\(i.quantity)")
                             }
-                        }
+                        } 
                         .onTapGesture {
                             
                             UIApplication.shared.windows.last?.rootViewController?.present(textFieldAlertView(id: i.id), animated: true, completion: nil)
@@ -71,24 +72,21 @@ struct CartView : View {
                 }
             }
             
-            if self.cartdata.datas.count != 0{
-                Button(action: {
-                    print("test")
-                    
-                }){
-                    Text("Checkout").frame(minWidth: 0, maxWidth: .infinity)
-                    .frame(height: 50)
-                    .foregroundColor(.black)
-                    .font(.system(size: 14, weight: .bold))
-                    .background(Color.yellow)
-                    .cornerRadius(5)
-                    
+            if self.cartdata.datas.count > 0{
+                
+                //Button um zur CheckoutView zu gelangen
+                NavigationView {
+                    VStack {
+                    NavigationLink(destination: CheckoutView()){
+                            Text("Checkout")
+                        }
+                    }
                 }
             }
             
         }.frame(width: UIScreen.main.bounds.width - 110, height: UIScreen.main.bounds.height - 350)
-        .background(Color.white)
-        .cornerRadius(25)
+            .background(Color.white)
+            .cornerRadius(25)
     }
 }
 
@@ -107,7 +105,7 @@ func textFieldAlertView(id: String)->UIAlertController{
         let db = Firestore.firestore()
         
         let value = alert.textFields![0].text!
-            
+        
         db.collection("cart").document(id).updateData(["quantity":Int(value)!]) { (err) in
             
             if err != nil{

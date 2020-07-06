@@ -33,7 +33,7 @@ class getFoodData: ObservableObject {
         }
     }
 }
-struct Food: Identifiable {
+struct Food: Identifiable,Equatable,Codable {
     
     internal init(id: String, name: String? = nil, price: String? = nil, pic: String? = nil) {
         self.id = id

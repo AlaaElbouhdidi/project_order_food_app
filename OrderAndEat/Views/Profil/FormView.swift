@@ -11,6 +11,7 @@ import SwiftUI
 
 struct FormView: View {
     
+    
     @State var firstname : String = ""
     @State var lastname :  String = ""
     @State var street :  String = ""
@@ -20,30 +21,36 @@ struct FormView: View {
     
     @EnvironmentObject var session: SessionStore
     
+    
+    
+    
+    
     init(){
         UITableView.appearance().backgroundColor = .clear
+        
     }
-
+    
     
     var body: some View {
-            Form{
-                Section(header: Text("Edit profile")){
-                    TextField("First Name", text: $firstname)
-                    TextField("Last Name", text: $lastname)
-                }
-                Section(header: Text("Address")){
-                    TextField("Street", text: $street)
-                    TextField("N°", text: $n)
-                    TextField("Zip", text: $zip)
-                    TextField("City", text: $city)
-                }
-                Button(action: {
-                    
-                }){
-                    Text("Save")
-                }
+        
+        Form{
+            Section(header: Text("Edit profile")){
+                TextField("First Name", text: $firstname)
+                TextField("Last Name", text: $lastname)
             }
-            .background(Color.white)
+            Section(header: Text("Address")){
+                TextField("Street", text: $street)
+                TextField("N°", text: $n)
+                TextField("Zip", text: $zip)
+                TextField("City", text: $city)
+            }
+            Button(action: {
+                
+            }){
+                Text("Save")
+            }
+        }
+        .background(Color.white)
         
     }
 }

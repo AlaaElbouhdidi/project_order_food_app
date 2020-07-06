@@ -16,6 +16,7 @@ struct Home: View {
     
     func getUser() {
            session.listen()
+           
        }
     
     var body: some View {
