@@ -16,6 +16,7 @@ struct OrderView: View {
     @State var quick = false
     @State var quantity = 0
     var uid: String
+    
     @Environment(\.presentationMode) var presentation
     
     

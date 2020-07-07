@@ -71,9 +71,8 @@ struct CartView : View {
                 }
             }
             
-            if self.cartdata.datas.count != 0{
+            if self.getCartDataOfThisUser().count != 0{
                 Button(action: {
-                    print("test")
                     
                 }){
                     Text("Checkout").frame(minWidth: 0, maxWidth: .infinity)

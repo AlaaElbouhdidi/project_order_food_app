@@ -43,16 +43,16 @@ class SessionStore: ObservableObject {
         let db = Firestore.firestore()
         
         //adding new Data in "users" Collection
-        var ref: DocumentReference? = nil
-        ref = db.collection("users").addDocument(data: [
+        db.collection("users").document(uid).setData([
             "firstname": firstName,
             "lastname": lastName,
+            "pic": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
             "uid": uid
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")
             } else {
-                print("Document added with ID: \(ref!.documentID)")
+                print("Document added")
             }
         }
     }
@@ -72,9 +72,17 @@ class SessionStore: ObservableObject {
                         let firstname = document.get("firstname") as? String ?? ""
                         let lastname = document.get("lastname") as? String ?? ""
                         let pic = document.get("pic") as? String ?? ""
+                        
+                        let street = document.get("street") as? String ?? ""
+                        let n = document.get("n") as? String ?? ""
+                        let zip = document.get("zip") as? String ?? ""
+                        let city = document.get("city") as? String ?? ""
+                        
+                        let address = Address(street: street, n: n, city: city, zip: zip)
                         self.session?.firstName = firstname
                         self.session?.lastName = lastname
                         self.session?.pic = pic
+                        self.session?.address = address
                     }
                 }
         }
@@ -107,5 +115,27 @@ struct User {
     var firstName: String?
     var lastName: String?
     var pic: String?
+    var address: Address?
     
+}
+struct Address {
+    internal init(street: String? = nil, n: String? = nil, city: String? = nil, zip: String? = nil) {
+        self.street = street
+        self.n = n
+        self.city = city
+        self.zip = zip
+    }
+    
+    var street: String?
+    var n: String?
+    var city: String?
+    var zip: String?
+    
+    internal init() {
+        self.street = ""
+        self.n = ""
+        self.city = ""
+        self.zip = ""
+    }
+
 }

@@ -12,10 +12,8 @@ import SDWebImageSwiftUI
 struct ProfilDetail: View {
     
     @EnvironmentObject var session: SessionStore
-    
-    func getusername() -> String {
-        return (self.session.session?.firstName ?? "")+" "+(self.session.session?.lastName ?? "")
-    }
+    @Environment(\.presentationMode) var presentation
+
     
     var body: some View {
         VStack(alignment: .leading){
