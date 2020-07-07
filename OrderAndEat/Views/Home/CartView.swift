@@ -12,27 +12,57 @@ import FirebaseFirestore
 
 struct CartView : View {
     
-    @ObservedObject var cartdata = getCartData()
-    var uid: String
+    @ObservedObject var cartdata : getCartData
+    @State var paymentType = 0
+    @State var home : Home
     
-    func getCartDataOfThisUser() -> [cart]  {
-        return self.cartdata.datas.filter{
-            $0.uid == self.uid
+    static let paymentTypes = ["Cash", "Credit card", "Paypal"]
+    
+    func addOrder(total: NSNumber, pt: String ) {
+        if(total != 0){
+            
+            let db = Firestore.firestore()
+            db.collection("orders")
+                .document()
+                .setData(["uid": self.cartdata.datas[0].uid, "total": total, "payment-type": pt, "status": "PENDING"]) { (err) in
+                    
+                    if err != nil{
+                        
+                        print((err?.localizedDescription)!)
+                        return
+                    }
+            }
         }
     }
     
+    func deleteAllCartItems(){
+        let db = Firestore.firestore()
+        for i in  self.cartdata.datas{
+            db.collection("cart").document(i.id).delete { (err) in
+                
+                if err != nil{
+                    
+                    print((err?.localizedDescription)!)
+                    return
+                }
+            }
+        }
+            
+    }
+    
     var body : some View{
-        
-        VStack(alignment: .leading){
+            VStack(alignment: .center){
             
-            Text(self.getCartDataOfThisUser().count != 0 ? "Items In The Cart" : "No Items In Cart").padding([.top,.leading])
+                Text(self.cartdata.datas.count != 0 ? "Items In The Cart" : "No Items In Cart")
+                    .padding([.top,.leading])
+                    .font(.title)
             
             
-            if self.getCartDataOfThisUser().count != 0{
+                if self.cartdata.datas.count != 0{
                 
                 List{
                     
-                    ForEach(self.getCartDataOfThisUser()){i in
+                    ForEach(self.cartdata.datas){i in
                         
                         HStack(spacing: 15){
                             
@@ -45,6 +75,10 @@ struct CartView : View {
                                 
                                 Text(i.name)
                                 Text("x\(i.quantity)")
+                            }
+                            Spacer()
+                            VStack(alignment: .trailing){
+                                Text("\(i.price) €")
                             }
                         }
                         .onTapGesture {
@@ -69,25 +103,43 @@ struct CartView : View {
                     }
                     
                 }
-            }
-            
-            if self.getCartDataOfThisUser().count != 0{
-                Button(action: {
+                VStack{
+
+                    Text("Total: \(self.cartdata.total) €")
+                        .fontWeight(.bold)
+                            .multilineTextAlignment(.trailing)
+                        Spacer()
+                        Text("How would you like to pay:")
+                            .font(.headline)
+                        
+                        Picker("", selection: self.$paymentType ){
+                            ForEach(0 ..< Self.paymentTypes.count) {
+                                Text(Self.paymentTypes[$0])
+                            }
+                        }.labelsHidden()
+                            .frame(maxWidth: 100, maxHeight: 100)
+                }.padding(.bottom)
                     
-                }){
-                    Text("Checkout").frame(minWidth: 0, maxWidth: .infinity)
-                    .frame(height: 50)
-                    .foregroundColor(.black)
-                    .font(.system(size: 14, weight: .bold))
-                    .background(Color.yellow)
-                    .cornerRadius(5)
-                    
+                    if self.cartdata.datas.count != 0{
+                        Button(action: {
+                            self.addOrder(total: self.cartdata.total, pt: Self.paymentTypes[self.paymentType])
+                            self.deleteAllCartItems()
+                            self.home.show = false
+                        }){
+                            Text("Checkout").frame(minWidth: 0, maxWidth: .infinity)
+                            .frame(height: 50)
+                            .foregroundColor(.black)
+                            .font(.system(size: 14, weight: .bold))
+                            .background(Color.yellow)
+                            .cornerRadius(5)
+                        }.padding(.top)
+                    }
                 }
-            }
             
-        }.frame(width: UIScreen.main.bounds.width - 110, height: UIScreen.main.bounds.height - 350)
-        .background(Color.white)
-        .cornerRadius(25)
+        }
+            .frame(width: UIScreen.main.bounds.width - 110, height: UIScreen.main.bounds.height - 350)
+            .background(Color.white)
+            .cornerRadius(25)
     }
 }
 
@@ -128,6 +180,6 @@ func textFieldAlertView(id: String)->UIAlertController{
 
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
-        CartView(uid: "")
+        CartView(cartdata: getCartData(uid: ""), home: Home())
     }
 }

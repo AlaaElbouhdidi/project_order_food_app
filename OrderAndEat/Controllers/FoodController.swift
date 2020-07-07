@@ -25,7 +25,7 @@ class getFoodData: ObservableObject {
             for i in snap!.documentChanges{
                 let id = i.document.documentID
                 let name = i.document.get("name") as! String
-                let price = i.document.get("price") as! String
+                let price : NSNumber = i.document.get("price") as! NSNumber
                 let pic = i.document.get("pic") as! String
                 self.data.append(Food(id: id, name: name, price: price, pic: pic))
             }
@@ -35,7 +35,7 @@ class getFoodData: ObservableObject {
 }
 struct Food: Identifiable {
     
-    internal init(id: String, name: String? = nil, price: String? = nil, pic: String? = nil) {
+    internal init(id: String, name: String? = nil, price: NSNumber? = nil, pic: String? = nil) {
         self.id = id
         self.name = name
         self.price = price
@@ -45,7 +45,7 @@ struct Food: Identifiable {
     
     var id: String
     var name: String?
-    var price: String?
+    var price: NSNumber?
     var pic: String?
     
 }

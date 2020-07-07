@@ -29,7 +29,9 @@
 		0961452824B0917E007FDE55 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0961452724B0917E007FDE55 /* SDWebImageSwiftUI */; };
 		096D036D249A86B200D3804A /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D036C249A86B200D3804A /* AddReviewView.swift */; };
 		096D0371249A9A9400D3804A /* ProfilDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D0370249A9A9400D3804A /* ProfilDetail.swift */; };
+		097318C624B4912300EE570C /* OrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097318C524B4912300EE570C /* OrderController.swift */; };
 		09E056222498054E00D1ECCE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09E056212498054E00D1ECCE /* GoogleService-Info.plist */; };
+		09E504AE24B4F7E00090ED94 /* MyOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E504AD24B4F7E00090ED94 /* MyOrdersView.swift */; };
 		09F1F5B5249A46D50018F204 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F1F5B4249A46D50018F204 /* DetailView.swift */; };
 		09F1F5B8249A4E650018F204 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F1F5B7249A4E650018F204 /* StarRatingView.swift */; };
 		09F1F5BA249A54420018F204 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F1F5B9249A54420018F204 /* ReviewView.swift */; };
@@ -62,7 +64,9 @@
 		0961452224B090FD007FDE55 /* SDWebImageSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImageSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		096D036C249A86B200D3804A /* AddReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
 		096D0370249A9A9400D3804A /* ProfilDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilDetail.swift; sourceTree = "<group>"; };
+		097318C524B4912300EE570C /* OrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderController.swift; sourceTree = "<group>"; };
 		09E056212498054E00D1ECCE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		09E504AD24B4F7E00090ED94 /* MyOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersView.swift; sourceTree = "<group>"; };
 		09F1F5B4249A46D50018F204 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		09F1F5B7249A4E650018F204 /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
 		09F1F5B9249A54420018F204 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 				090CB7D52499194A00B72BBB /* FoodController.swift */,
 				0928467B2499311700583808 /* CartController.swift */,
 				0961451E24B08F88007FDE55 /* ReviewController.swift */,
+				097318C524B4912300EE570C /* OrderController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 			children = (
 				096D0370249A9A9400D3804A /* ProfilDetail.swift */,
 				0961452024B0902A007FDE55 /* FormView.swift */,
+				09E504AD24B4F7E00090ED94 /* MyOrdersView.swift */,
 			);
 			path = Profil;
 			sourceTree = "<group>";
@@ -333,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				097318C624B4912300EE570C /* OrderController.swift in Sources */,
 				090CB7D62499194A00B72BBB /* FoodController.swift in Sources */,
 				0961451F24B08F88007FDE55 /* ReviewController.swift in Sources */,
 				091CB68A2498C45500EB5AED /* SignInView.swift in Sources */,
@@ -353,6 +360,7 @@
 				090CB7EE249924D500B72BBB /* OrderView.swift in Sources */,
 				090CB7D4249918FB00B72BBB /* Home.swift in Sources */,
 				09F1F5BA249A54420018F204 /* ReviewView.swift in Sources */,
+				09E504AE24B4F7E00090ED94 /* MyOrdersView.swift in Sources */,
 				09F1F5B5249A46D50018F204 /* DetailView.swift in Sources */,
 				090D13D82497FF8A006CC868 /* ContentView.swift in Sources */,
 			);

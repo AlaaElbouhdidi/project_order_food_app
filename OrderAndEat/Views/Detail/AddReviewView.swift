@@ -20,11 +20,11 @@ struct AddReviewView: View {
     
     func addReview() {
         if(self.rating != -1){
-            var username : String = ((self.session.session?.firstName)! ?? "Anonym"  + " " + (self.session.session?.lastName)!)
+            var username : String = (((self.session.session?.firstName)! ?? "Anonym" ) + " " + (self.session.session?.lastName)!)
             let db = Firestore.firestore()
             db.collection("review")
                 .document()
-                .setData(["stars":(self.rating+1),"reviewtext":self.review,"foodid":self.food.id,"username": username ,"userpic":self.session.session?.pic ?? " ", "uid": self.session.session?.uid ?? ""]) { (err) in
+                .setData(["stars":(self.rating+1),"reviewtext":self.review,"foodid":self.food.id, "username": username ,"userpic":self.session.session?.pic ?? " ", "uid": self.session.session?.uid ?? ""]) { (err) in
                     
                     if err != nil{
                         

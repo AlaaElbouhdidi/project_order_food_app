@@ -26,7 +26,7 @@ struct OrderView: View {
             let db = Firestore.firestore()
             db.collection("cart")
                 .document()
-                .setData(["item":self.data.name!,"quantity":self.quantity,"quickdelivery":self.quick,"cashondelivery":self.cash,"pic":self.data.pic!,  "uid": self.uid ]) { (err) in
+                .setData(["item": self.data.name!, "price": data.price!, "quantity":self.quantity,"quickdelivery":self.quick,"cashondelivery":self.cash,"pic":self.data.pic!,  "uid": self.uid ]) { (err) in
                     
                     if err != nil{
                         
@@ -52,7 +52,7 @@ struct OrderView: View {
             VStack(alignment: .leading, spacing: 25) {
                 
                 Text(data.name!).fontWeight(.heavy).font(.title)
-                Text(data.price!+" €").fontWeight(.heavy).font(.body)
+                Text("\(data.price!) €").fontWeight(.heavy).font(.body)
                 
                 Toggle(isOn : $cash){
                     

@@ -27,6 +27,7 @@ struct SignInView: View {
     
     var body: some View {
         VStack {
+            Spacer()
             Image("logo")
                 .resizable().frame(width: 200, height: 200)
             VStack (spacing: 18) {
@@ -72,13 +73,18 @@ struct SignInView: View {
                         .foregroundColor(.primary)
                     Text("Create an account")
                         .font(.system(size: 14, weight: .bold))
-                        .foregroundColor(.yellow)
+                        .foregroundColor(.blue)
                 }
             }.padding(.bottom)
             
         }
             
-        .padding(.horizontal, 32)
+            .padding(.horizontal, 32)
+        .background(
+            Image("pink")
+            .resizable()
+            .aspectRatio(contentMode: .fill))
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

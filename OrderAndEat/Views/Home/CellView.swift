@@ -27,7 +27,7 @@ struct CellView: View {
                         .font(.title)
                         .fontWeight(.heavy)
                     
-                    Text(data.price!+" €")
+                    Text("\(data.price!) €")
                         .fontWeight(.heavy)
                         .font(.body)
                 }

@@ -63,7 +63,7 @@ struct Home: View {
                         
                         GeometryReader{_ in
                             
-                            CartView(uid: self.session.session?.uid ?? " ")
+                            CartView(cartdata: getCartData(uid: self.session.session?.uid ?? ""), home: self)
                             
                         }.background(
                             

@@ -38,7 +38,7 @@ struct DetailView: View {
                     
                     HStack(){
                         
-                        Text(data.price!+" €")
+                        Text("\(data.price!) €")
                             .fontWeight(.heavy)
                             .font(.title)
                         Spacer()
@@ -78,6 +78,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(data: Food(id: "a", name: "Döner", price: "5", pic: "https://cdn.pixabay.com/photo/2016/10/19/18/25/doner-kebab-1753615_960_720.jpg"))
+        DetailView(data: Food(id: "a", name: "Döner", price: 5, pic: "https://cdn.pixabay.com/photo/2016/10/19/18/25/doner-kebab-1753615_960_720.jpg"))
     }
 }

@@ -34,3 +34,9 @@ struct CartRow_Previews: PreviewProvider {
         CartRow()
     }
 }*/
+
+struct CartRow_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
+}

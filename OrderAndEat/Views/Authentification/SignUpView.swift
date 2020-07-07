@@ -30,6 +30,7 @@ struct SignUpView: View {
     
     var body: some View {
         VStack {
+            Spacer()
             Image("logo")
             .resizable().frame(width: 200, height: 200)
             Text("Create Account")
@@ -82,6 +83,11 @@ struct SignUpView: View {
             Spacer()
         }
         .padding(.horizontal, 32)
+        .background(
+            Image("pink")
+            .resizable()
+            .aspectRatio(contentMode: .fill))
+        .edgesIgnoringSafeArea(.all)
     }
 }
 struct SignUpView_Previews: PreviewProvider {
