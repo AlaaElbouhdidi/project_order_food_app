@@ -32,7 +32,8 @@ Bestellkarte und für das UserProfil und schlussendlich für das Speichern der B
 
 **Verwendete Technlogien** :
 
-Neben SWIFT und SWIFT UI haben wir noch weiterhin FireBase für das Speichern der Daten und zur Authentifizierung genutzt
+Neben SWIFT und SWIFT UI haben wir noch weiterhin FireBase für das Speichern der Daten und zur Authentifizierung genutzt. Außerdem wurde SDWebImageSwiftUI auch eingesetzt. 
+Diese Bibliothek bietet einen asynchronen Image-Downloader mit Cache-Unterstützung.
 
 
 
