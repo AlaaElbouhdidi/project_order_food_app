@@ -42,6 +42,6 @@ Neben SWIFT und SWIFT UI haben wir noch weiterhin FireBase für das Speichern de
 
 **Fazit von Alaa**:
 
-    - SwiftUI erleichtert vieles, sorgt er doch bei einer Änderung für eine automatische Aktualisierung der View. 
-    - in Xcode 11 integriertes graphisches Werkzeug zur Gestaltung des UIs macht es UI-Entwicklern ganz einfach mit SwiftUI eine Benutzeroberfläche zu gestalten.
-    - Der Kurs hätte meiner Meinung nach einen Überblick der sämtlichen UI-Elemente und ihre Eigenschaften und eine Dokumentation über Modifiers. 
+- SwiftUI erleichtert vieles, sorgt er doch bei einer Änderung für eine automatische Aktualisierung der View. 
+- in Xcode 11 integriertes graphisches Werkzeug zur Gestaltung des UIs macht es UI-Entwicklern ganz einfach mit SwiftUI eine Benutzeroberfläche zu gestalten.
+- Der Kurs hätte meiner Meinung nach einen Überblick der sämtlichen UI-Elemente und ihre Eigenschaften und eine Dokumentation über Modifiers. 
