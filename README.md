@@ -41,7 +41,8 @@ Diese Bibliothek bietet einen asynchronen Image-Downloader mit Cache-Unterstütz
 
 **Fazit von Yasin**:
 
-
+Meiner Meinung nach war der Kurs sehr gut aufgebaut und die Grundlagen sehr gut aufgezeigt und erklärt, sodass wir nur noch das Gelernte anwenden sollten, 
+für mich war das Arbeiten mit SWIFT sehr schwer, da ich mich allgemein auf Backend Programmierung spezialisiert habe in Java und es ein schwerer Übergang war.  
 
 **Fazit von Alaa**:
 
