@@ -11,6 +11,8 @@ OrderAndEat ist eine Essenslieferapp, in der man sich ein Konto anlegt, sich aut
 *  Authentifizierung mit Firebase(Login/Logout)
 *  Anzeige des User Profils(Kontaktdaten, Adresse) und Editieren des User Profils
 *  Anzeige der Gerichte(Wird geholt aus FireStore Database)
+*  Auflisten der Bewertungen von Beutzern bei der Beschreibung einer Speise
+*  Jeder Benutzer kann eine Bewertung mit Stern-Skala und einem Text selbst verfassen 
 *  Essen einer Bestellkarte hinzufügen(Warenkorb)
 *  Anzeige der Gerichte in der Bestellkarte und der totale Preis
 *  Möglichkeit zum Ändern der Menge eines Gerichts oder direktes Löschen aus der Bestellkarte
@@ -39,7 +41,7 @@ Diese Bibliothek bietet einen asynchronen Image-Downloader mit Cache-Unterstütz
 
 **Fazit von Yasin**:
 
-Meiner Meinung nach war der Kurs sehr gut aufgebaut und die Grundlagen sehr gut aufgezeigt und erklärt , sodass wir nur noch das Gelernte anwenden sollten , für mich war das Arbeiten mit SWIFT sehr schwer , da ich mich allgemein auf Backend Programmierung spezialisiert habe in Java und es ein schwerer Übergang war.  
+
 
 **Fazit von Alaa**:
 
